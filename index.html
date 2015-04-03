@@ -53,21 +53,26 @@
 <body>
 	<nav>
 		<ul>
-			<li data-color class="red"><a href="#">Red</a> </li>
-			<li data-color class="green"><a href="#">Green</a> </li>
-			<li data-color class="blue"><a href="#">Blue</a> </li>
-			<li data-color class="yellow"><a href="#">Yellow</a> </li>
-			<li data-color class="white"><a href="#">White</a> </li>
+			<li data-color="0" class="red"><a href="#">Red</a> </li>
+			<li data-color="1" class="green"><a href="#">Green</a> </li>
+			<li data-color="2" class="blue"><a href="#">Blue</a> </li>
+			<li data-color="3" class="yellow"><a href="#">Yellow</a> </li>
+			<li data-color="4" class="white"><a href="#">White</a> </li>
 		</ul>
 	</nav>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript">
-(function()
-{
+
 	var color = $('[data-color]');
 
-	console.log(color);
-})();
+	color.each(function changeBackground(){
+		var userPick = $(this).attr('data-color');
+
+		$(this).click(function(){
+			$('body').css('background', color[userPick].textContent);
+		})
+	});
+
 </script>
 </body>
 </html>
